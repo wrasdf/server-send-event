@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Server Send Events</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <h1>
+    Hello World.
+  </h1>
+  <div id="content"></div>
+</body>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="./eventsource-polyfill/dist/eventsource.js"></script>
+<script type="text/javascript">
+  var serverEvents = new EventSource("/api/transcations", {
+    withCredentials: true
+  });
+
+  serverEvents.onmessage = function(e) {
+    if(e.data.indexOf(5) !== -1) {
+        serverEvents.close();
+        return true;
+    }
+    $("#content").append("<div> message: "+e.data+"</div>");
+    // console.log('message ------------------ : ',e.data);
+  }
+
+  serverEvents.onerror = function(e) {
+    $("#content").append("<div> error: "+e.data+"</div>");
+    // console.log('error ----------------- : ', e);
+  }
+</script>
+</html>

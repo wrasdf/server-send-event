@@ -1,0 +1,16 @@
+{
+  "name": "server-send-events",
+  "version": "1.0.0",
+  "description": "Server Send Events",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eventsource-polyfill": "^0.9.6",
+    "express": "^4.13.4",
+    "server-sent-events": "0.0.4"
+  }
+}
