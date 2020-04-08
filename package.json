@@ -11,6 +11,6 @@
   "dependencies": {
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.4",
-    "server-sent-events": "0.0.4"
+    "server-sent-events": "1.0.1"
   }
 }
